@@ -1,10 +1,8 @@
 import React from "react";
+import login from '../assets/images/login.png'
+
 
 class Login extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     formSubmit = async (event) => {
         event.preventDefault()
@@ -12,23 +10,26 @@ class Login extends React.Component {
         const data = Object.fromEntries(form.entries())
         // console.log(data)
 
-        const response = await fetch('http://localhost/5000/api/login', {
+        const response = await fetch('http://localhost:5000/api/login', {
             method: 'PUT',
             headers: {
                 'Accept': 'appication/json',
-                'Content-type': 'application/json',
-                'credentials': 'include'
+                "Content-Type": "application/json",
+
             },
             body: JSON.stringify({
                 username: data["uname"],
                 password: data["passwd"]
-            })
+            }),
+            'credentials': 'include',
+            mode: 'cors'
         }).then((response) => response.json())
 
-        let status = response.status
-        if (status === "success") {
+        let message = response.message
+        if (message === "success") {
             localStorage.setItem("uname", response.username)
             localStorage.setItem("uid", response.userId);
+            localStorage.setItem("token", true)
             window.location.reload()
         }
     }
@@ -49,7 +50,7 @@ class Login extends React.Component {
                 <main className="mt-28">
                     <div className="containerx flex justify-center lg:flex-row lg:place-content-evenly lg:mr-10">
                         <div className="image-container hidden lg:block">
-                            <img className="w-[600px] " src={require('../static_images/login.png')} alt="someimage" />
+                            <img className="w-[600px] " src={login} alt="someimage" />
                         </div>
 
                         <div className="form-container border rounded-[3rem] flex flex-col px-[50px] py-[70px] border-white bg-white  ">

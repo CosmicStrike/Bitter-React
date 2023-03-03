@@ -1,5 +1,5 @@
 import React from "react";
-
+import reg from '../assets/images/reg.png'
 
 class Register extends React.Component {
 
@@ -37,7 +37,7 @@ class Register extends React.Component {
                         </div>
 
                         <div class="image-container hidden lg:block">
-                            <img src={require('../static_images/reg.png')} alt="someimg" class="w-[600px] " />
+                            <img src={reg} alt="someimg" class="w-[600px] " />
                         </div>
                     </div>
                 </main>
