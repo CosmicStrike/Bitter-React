@@ -1,6 +1,6 @@
-import Login from './pages/login'
-import Register from './pages/register'
-import Main from './pages/main'
+import Login from './Pages/login'
+import Register from './Pages/register'
+import Main from './Pages/main'
 import './input.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
