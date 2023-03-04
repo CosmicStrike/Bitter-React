@@ -29,7 +29,7 @@ class Login extends React.Component {
         if (message === "success") {
             localStorage.setItem("uname", response.username)
             localStorage.setItem("uid", response.userId);
-            localStorage.setItem("token", true)
+            localStorage.setItem("Login", true)
             window.location.reload()
         }
         else {

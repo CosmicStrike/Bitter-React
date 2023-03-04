@@ -1,12 +1,12 @@
-import Login from './Pages/login'
-import Register from './Pages/register'
-import Main from './Pages/main'
+import Login from './pages/login'
+import Main from './pages/main'
 import './input.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import Navbar from './components/navbar';
 import { SnackbarProvider } from 'notistack';
 function App() {
-  let t = localStorage.getItem("token")
+  let t = localStorage.getItem("Login")
+
 
   return (
     <>
@@ -18,7 +18,7 @@ function App() {
         <BrowserRouter>
           {/* <Navbar /> */}
           <Routes>
-            <Route path='/' element={t === true ? <Main /> : <Login />} />
+            <Route path='/' element={t ? <Main /> : <Login />} />
           </Routes>
         </BrowserRouter>
       </SnackbarProvider>
