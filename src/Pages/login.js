@@ -1,6 +1,6 @@
 import React from "react";
 import login from '../assets/images/login.png'
-
+import { withSnackbar } from 'notistack'
 
 class Login extends React.Component {
 
@@ -12,6 +12,8 @@ class Login extends React.Component {
 
         const response = await fetch('http://localhost:5000/api/login', {
             method: 'PUT',
+            mode: 'cors',
+            'credentials': 'include',
             headers: {
                 'Accept': 'appication/json',
                 "Content-Type": "application/json",
@@ -21,8 +23,6 @@ class Login extends React.Component {
                 username: data["uname"],
                 password: data["passwd"]
             }),
-            'credentials': 'include',
-            mode: 'cors'
         }).then((response) => response.json())
 
         let message = response.message
@@ -32,6 +32,19 @@ class Login extends React.Component {
             localStorage.setItem("token", true)
             window.location.reload()
         }
+        else {
+            this.props.enqueueSnackbar(message, {
+                variant: 'error',
+                sx: {
+                    "& .SnackbarContent-root": {
+                        width: 100,
+                        fontSize: 16,
+                    }
+                }
+            })
+        }
+
+
     }
 
 
@@ -82,4 +95,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+export default withSnackbar(Login)
