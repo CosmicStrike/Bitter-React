@@ -1,12 +1,12 @@
 import React from "react";
+import PostCard from "../Components/postCard";
+import userDefault from '../assets/images/default.png'
 
 class Main extends React.Component {
 
     render() {
-
         return (
             <>
-
                 <main>
                     <div id="text-modal" class="relative z-10" hidden aria-labelledby="modal-title" role="dialog" aria-modal="true">
                         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
@@ -93,8 +93,10 @@ class Main extends React.Component {
                             <span class="material-icons pt-8 ml-4 hover:cursor-pointer" id="image-modal-btn">image</span>
                         </div>
                     </div>
-                    <div class="post-area w-full flex flex-col px-1 md:px-36 lg:px-80" id="post_section"></div>
-                    <script src="/static/js/main.js"></script>
+                    <div class="post-area w-full flex flex-col px-1 md:px-36 lg:px-80" id="post_section">
+                        <PostCard userImage={userDefault} islike={true} isdislike={false} />
+
+                    </div>
                 </main>
 
             </>)

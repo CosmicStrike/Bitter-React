@@ -7,7 +7,6 @@ class EditProfile extends React.Component {
 
         return (
             <>
-                <Navbar />
                 <main className="flex justify-center my-12 w-full">
                     <div className="profile flex flex-col items-center w-[50%] border-2 ">
 

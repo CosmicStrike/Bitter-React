@@ -56,6 +56,7 @@ class Login extends React.Component {
 
                     <button
                         className="bg-white-900 h-[30px] w-[100px] border rounded-full border-purple-900 mt-4 mr-4 text-purple-900 hover:cursor-pointer"
+                        onClick={() => window.location.href = "/register"}
                     >
                         Sign Up
                     </button>

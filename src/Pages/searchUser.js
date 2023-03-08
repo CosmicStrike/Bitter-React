@@ -1,16 +1,9 @@
 import React from "react";
-import Navbar from '../Components/navbar'
-
 
 export default class SearchUser extends React.Component {
-    constructor() {
-        super(this.props)
-    }
-
     render() {
         return (
             <>
-                <Navbar />
                 <main class="w-full flex flex-col justify-center">
                     <form id="searchForm" class="w-full">
                         <div

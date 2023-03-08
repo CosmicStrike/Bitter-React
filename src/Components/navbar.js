@@ -7,11 +7,11 @@ function Navbar() {
             <header class="header border border-r-0 border-l-0 border-black pb-4 w-full flex flex-row place-content-between">
                 <p class="pl-6 text-xl pt-6 font-bold">Bitter</p>
                 <div class="navTabs flex gap-x-8">
-                    <div class="homeTab hover:cursor-pointer">
+                    <div class="homeTab hover:cursor-pointer" onClick={() => window.location.href = '/'}>
                         <p class="material-icons pt-4 mx-2 text-2xl" id="homebtn"> home</p>
                         <p>Home</p>
                     </div>
-                    <div class="searchTab hover:cursor-pointer" onclick="window.location.href='/search'">
+                    <div class="searchTab hover:cursor-pointer" onclick={() => window.location.href = '/search'}>
                         <p class="material-icons pt-4 mx-2 text-2xl" id="searchbtn">search</p>
                         <p>Search</p>
                     </div>
@@ -22,7 +22,7 @@ function Navbar() {
                         <img id="profile-img" src="" alt="pfp" class="min-w-[50px] h-[50px] rounded-full" />
                     </div>
                     <div class="navs group-hover:block absolute hidden w-36 right-1 z-1 shadow-xl">
-                        <p class="py-2 hover:cursor-pointer pl-2 bg-white hover:bg-gray-300" id="profile-btn">
+                        <p class="py-2 hover:cursor-pointer pl-2 bg-white hover:bg-gray-300" id="profile-btn" onClick={() => window.location.href = '/profile'}>
                             Profile
                         </p>
                         <p class="py-2 hover:cursor-pointer pl-2 bg-white hover:bg-gray-300" id="logout-btn">

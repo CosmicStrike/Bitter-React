@@ -1,26 +1,28 @@
-import Login from './pages/login'
-import Main from './pages/main'
 import './input.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import Navbar from './components/navbar';
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
-function App() {
-  let t = localStorage.getItem("Login")
+import MainRouter from './mainRouter';
+import LoginRouter from './loginRouter';
+import PageNotFound from './Pages/pageNotFound';
 
+function App() {
+  // let isLoggedIn = localStorage.getItem("Login")
+  let isLoggedIn = true
 
   return (
     <>
       <SnackbarProvider
         maxSnack={1}
         preventDuplicate
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+
         <BrowserRouter>
-          {/* <Navbar /> */}
           <Routes>
-            <Route path='/' element={t ? <Main /> : <Login />} />
+            <Route path="/*" element={isLoggedIn ? <MainRouter /> : <LoginRouter />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
+
       </SnackbarProvider>
     </>
   );
