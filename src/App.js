@@ -1,13 +1,12 @@
 import './input.css'
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
-import MainRouter from './mainRouter';
-import LoginRouter from './loginRouter';
+import {LoginRouter, MainRouter} from './loginRouter';
 import PageNotFound from './Pages/pageNotFound';
 
 function App() {
   // let isLoggedIn = localStorage.getItem("Login")
-  let isLoggedIn = true
+  let isLoggedIn = false
 
   return (
     <>
